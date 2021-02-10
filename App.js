@@ -1,14 +1,14 @@
 import React from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 
-import Menu from './Menu';
+import Menu from './src/components/Menu';
 
-import PopularSongs from './PopularSongs';
-import StylesList from './StylesList';
-import Style from './Style';
-import Song from './Song';
-import AddSong from './AddSong';
-import Cart from './Cart';
+import PopularSongs from './src/components/PopularSongs';
+import StylesList from './src/components/StylesList';
+import Style from './src/components/Style';
+import Song from './src/components/Song';
+import AddSong from './src/components/AddSong';
+import Cart from './src/components/Cart';
 
 // - / (PopularSongs.js)
 // - /styles (StylesList.js)

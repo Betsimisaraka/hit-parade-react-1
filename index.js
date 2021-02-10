@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { ContextProvider } from './components/Context';
-import App from './components/App';
+import { ContextProvider } from './src/components/Context';
+import App from './App';
 
 ReactDOM.render(
 	<ContextProvider>
