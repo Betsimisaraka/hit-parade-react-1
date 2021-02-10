@@ -1,27 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Context } from './Context';
 import { useParams, Link } from 'react-router-dom';
 import styled from 'styled-components';
+import {SongPreviewContainer, SongPreview} from '../styled-components/styles';
 
-const SongPreviewContainer = styled.div`
-	display: grid;
-	grid-template-columns: 500px;
-	gap: 20px;
-`;
-
-export const SongPreview = styled.div`
-	background: #272343;
-	padding: 2rem;
-	color: white;
-	h3 {
-		margin: 0;
-		font-size: 1.4rem;
-	}
-`;
-
-export default function Style() {
+export default function Style({ songs, setSongs }) {
 	const { styleName } = useParams();
-	const { songs } = useContext(Context);
+
+	useEffect(() => {
+		setSongs();
+	}, [])
 
 	function createSongTemplate(song) {
 		return (

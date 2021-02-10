@@ -4,7 +4,7 @@ import {combineReducers} from 'redux';
 function songs(state = [], action) {
     switch(action.type) {
         case "SET_SONGS":
-            return action.value
+            return action.value 
         default:
             return state;
     }
@@ -14,8 +14,8 @@ function cartItem(state = [], action) {
     return state;
 }
 
-function styles(state = [], action) {
-    return state;
+function styles(state = []) {
+    return state
 }
 
 

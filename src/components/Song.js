@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { Context } from './Context';
-import { SongPreview } from './Style';
+import { SongPreview } from '../styled-components/styles';
 import { AiOutlineArrowLeft } from 'react-icons/Ai';
 
 export default function Song() {

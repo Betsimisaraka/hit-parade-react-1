@@ -1,23 +1,10 @@
-import React, { useContext } from 'react';
-import { Context } from './Context';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 
-const StylesContainer = styled.div`
-	display: grid;
-	gap: 20px;
-	a {
-		text-decoration: none;
-		color: #272343;
-		font-size: 2rem;
-	}
-	a:hover {
-		color: #ffd803;
-	}
-`;
+import {StylesContainer } from '../styled-components/styles';
 
-export default function StylesList() {
-	const { styles } = useContext(Context);
+export default function StylesList({ styles }) {
+	
 	return (
 		<div>
 			<h1>Styles list</h1>

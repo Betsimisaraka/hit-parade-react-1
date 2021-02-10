@@ -1,30 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Context } from './Context';
-import styled from 'styled-components';
-
-const FormStyles = styled.form`
-	display: grid;
-	grid-template-columns: 300px;
-	gap: 10px;
-	input,
-	select,
-	textarea {
-		height: 30px;
-		background: #bae8e8;
-		border: none;
-		padding: 0 1rem;
-		border-radius: 5px;
-	}
-	input::placeholder {
-		/* Chrome, Firefox, Opera, Safari 10.1+ */
-		color: #272343;
-		opacity: 1; /* Firefox */
-	}
-`;
-
-// control inputs
-// input that is link to STATE
-// value, onChange
+import FormStyles from '../styled-components/styles';
 
 export default function AddSong() {
 	const { styles, addSong } = useContext(Context);

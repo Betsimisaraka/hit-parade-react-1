@@ -55251,11 +55251,51 @@ function SongItem(_ref) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SongsContainer = void 0;
+exports.StylesContainer = exports.SongPreview = exports.SongPreviewContainer = exports.FormStyles = exports.SongsContainer = void 0;
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _templateObject5() {
+  var data = _taggedTemplateLiteral(["\n\tdisplay: grid;\n\tgap: 20px;\n\ta {\n\t\ttext-decoration: none;\n\t\tcolor: #272343;\n\t\tfont-size: 2rem;\n\t}\n\ta:hover {\n\t\tcolor: #ffd803;\n\t}\n"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["\n\tbackground: #272343;\n\tpadding: 2rem;\n\tcolor: white;\n\th3 {\n\t\tmargin: 0;\n\t\tfont-size: 1.4rem;\n\t}\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n\tdisplay: grid;\n\tgrid-template-columns: 500px;\n\tgap: 20px;\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n\tdisplay: grid;\n\tgrid-template-columns: 300px;\n\tgap: 10px;\n\tinput,\n\tselect,\n\ttextarea {\n\t\theight: 30px;\n\t\tbackground: #bae8e8;\n\t\tborder: none;\n\t\tpadding: 0 1rem;\n\t\tborder-radius: 5px;\n\t}\n\tinput::placeholder {\n\t\t/* Chrome, Firefox, Opera, Safari 10.1+ */\n\t\tcolor: #272343;\n\t\topacity: 1; /* Firefox */\n\t}\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
 
 function _templateObject() {
   var data = _taggedTemplateLiteral(["\n\tdisplay: grid;\n\tgrid-template-columns: 500px;\n\tgap: 20px;\n\tpadding: 0;\n\tmargin: 0;\n"]);
@@ -55272,6 +55312,22 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 var SongsContainer = _styledComponents.default.ul(_templateObject());
 
 exports.SongsContainer = SongsContainer;
+
+var FormStyles = _styledComponents.default.form(_templateObject2());
+
+exports.FormStyles = FormStyles;
+
+var SongPreviewContainer = _styledComponents.default.div(_templateObject3());
+
+exports.SongPreviewContainer = SongPreviewContainer;
+
+var SongPreview = _styledComponents.default.div(_templateObject4());
+
+exports.SongPreview = SongPreview;
+
+var StylesContainer = _styledComponents.default.div(_templateObject5());
+
+exports.StylesContainer = StylesContainer;
 },{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/PopularSongs.js":[function(require,module,exports) {
 "use strict";
 
@@ -55426,53 +55482,51 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = StylesList;
 
-var _react = _interopRequireWildcard(require("react"));
-
-var _Context = require("./Context");
+var _react = _interopRequireDefault(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
 
-var _styledComponents = _interopRequireDefault(require("styled-components"));
+var _styles = require("../styled-components/styles");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\tdisplay: grid;\n\tgap: 20px;\n\ta {\n\t\ttext-decoration: none;\n\t\tcolor: #272343;\n\t\tfont-size: 2rem;\n\t}\n\ta:hover {\n\t\tcolor: #ffd803;\n\t}\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var StylesContainer = _styledComponents.default.div(_templateObject());
-
-function StylesList() {
-  var _useContext = (0, _react.useContext)(_Context.Context),
-      styles = _useContext.styles;
-
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Styles list"), /*#__PURE__*/_react.default.createElement(StylesContainer, null, styles.map(function (style) {
+function StylesList(_ref) {
+  var styles = _ref.styles;
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Styles list"), /*#__PURE__*/_react.default.createElement(_styles.StylesContainer, null, styles.map(function (style) {
     return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
       to: "/styles/".concat(style),
       key: style
     }, "\uD83C\uDFA7 ", style);
   })));
 }
-},{"react":"node_modules/react/index.js","./Context":"src/components/Context.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/Style.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../styled-components/styles":"src/styled-components/styles.js"}],"src/containers/StylesList.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _reactRedux = require("react-redux");
+
+var _StylesList = _interopRequireDefault(require("../components/StylesList"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = (0, _reactRedux.connect)(function (state) {
+  return {
+    styles: state.styles
+  };
+}, null)(_StylesList.default);
+
+exports.default = _default;
+},{"react-redux":"node_modules/react-redux/es/index.js","../components/StylesList":"src/components/StylesList.js"}],"src/components/Style.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = Style;
-exports.SongPreview = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -55482,52 +55536,30 @@ var _reactRouterDom = require("react-router-dom");
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
+var _styles = require("../styled-components/styles");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n\tbackground: #272343;\n\tpadding: 2rem;\n\tcolor: white;\n\th3 {\n\t\tmargin: 0;\n\t\tfont-size: 1.4rem;\n\t}\n"]);
+function Style(_ref) {
+  var songs = _ref.songs,
+      setSongs = _ref.setSongs;
 
-  _templateObject2 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\tdisplay: grid;\n\tgrid-template-columns: 500px;\n\tgap: 20px;\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var SongPreviewContainer = _styledComponents.default.div(_templateObject());
-
-var SongPreview = _styledComponents.default.div(_templateObject2());
-
-exports.SongPreview = SongPreview;
-
-function Style() {
   var _useParams = (0, _reactRouterDom.useParams)(),
       styleName = _useParams.styleName;
 
-  var _useContext = (0, _react.useContext)(_Context.Context),
-      songs = _useContext.songs;
+  (0, _react.useEffect)(function () {
+    setSongs();
+  }, []);
 
   function createSongTemplate(song) {
     return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
       to: "/song/".concat(song.id),
       key: song.id
-    }, /*#__PURE__*/_react.default.createElement(SongPreview, null, /*#__PURE__*/_react.default.createElement("h3", null, song.title), /*#__PURE__*/_react.default.createElement("h4", null, song.artist)));
+    }, /*#__PURE__*/_react.default.createElement(_styles.SongPreview, null, /*#__PURE__*/_react.default.createElement("h3", null, song.title), /*#__PURE__*/_react.default.createElement("h4", null, song.artist)));
   }
 
   function showSongsFilteredByStyle() {
@@ -55542,9 +55574,34 @@ function Style() {
     return filteredSongs;
   }
 
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Style"), /*#__PURE__*/_react.default.createElement(SongPreviewContainer, null, showSongsFilteredByStyle()));
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Style"), /*#__PURE__*/_react.default.createElement(_styles.SongPreviewContainer, null, showSongsFilteredByStyle()));
 }
-},{"react":"node_modules/react/index.js","./Context":"src/components/Context.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"node_modules/react-icons/Ai/index.esm.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Context":"src/components/Context.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js","../styled-components/styles":"src/styled-components/styles.js"}],"src/containers/Style.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _reactRedux = require("react-redux");
+
+var _Style = _interopRequireDefault(require("../components/Style"));
+
+var _actions = require("../actions");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = (0, _reactRedux.connect)(function (state) {
+  return {
+    songs: state.songs
+  };
+}, {
+  setSongs: _actions.setSongs
+})(_Style.default);
+
+exports.default = _default;
+},{"react-redux":"node_modules/react-redux/es/index.js","../components/Style":"src/components/Style.js","../actions":"src/actions/index.js"}],"node_modules/react-icons/Ai/index.esm.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -72003,7 +72060,7 @@ var _reactRouterDom = require("react-router-dom");
 
 var _Context = require("./Context");
 
-var _Style = require("./Style");
+var _styles = require("../styled-components/styles");
 
 var _Ai = require("react-icons/Ai");
 
@@ -72026,9 +72083,9 @@ function Song() {
     onClick: function onClick() {
       return history.goBack();
     }
-  }), song === null || song === void 0 ? void 0 : song.artist, " - ", song === null || song === void 0 ? void 0 : song.title), /*#__PURE__*/_react.default.createElement(_Style.SongPreview, null, /*#__PURE__*/_react.default.createElement("h3", null, "Lyrics"), song === null || song === void 0 ? void 0 : song.lyrics));
+  }), song === null || song === void 0 ? void 0 : song.artist, " - ", song === null || song === void 0 ? void 0 : song.title), /*#__PURE__*/_react.default.createElement(_styles.SongPreview, null, /*#__PURE__*/_react.default.createElement("h3", null, "Lyrics"), song === null || song === void 0 ? void 0 : song.lyrics));
 }
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./Context":"src/components/Context.js","./Style":"src/components/Style.js","react-icons/Ai":"node_modules/react-icons/Ai/index.esm.js"}],"src/components/AddSong.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./Context":"src/components/Context.js","../styled-components/styles":"src/styled-components/styles.js","react-icons/Ai":"node_modules/react-icons/Ai/index.esm.js"}],"src/components/AddSong.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -72040,7 +72097,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _Context = require("./Context");
 
-var _styledComponents = _interopRequireDefault(require("styled-components"));
+var _styles = _interopRequireDefault(require("../styled-components/styles"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -72059,23 +72116,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\tdisplay: grid;\n\tgrid-template-columns: 300px;\n\tgap: 10px;\n\tinput,\n\tselect,\n\ttextarea {\n\t\theight: 30px;\n\t\tbackground: #bae8e8;\n\t\tborder: none;\n\t\tpadding: 0 1rem;\n\t\tborder-radius: 5px;\n\t}\n\tinput::placeholder {\n\t\t/* Chrome, Firefox, Opera, Safari 10.1+ */\n\t\tcolor: #272343;\n\t\topacity: 1; /* Firefox */\n\t}\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var FormStyles = _styledComponents.default.form(_templateObject()); // control inputs
-// input that is link to STATE
-// value, onChange
-
 
 function AddSong() {
   var _useContext = (0, _react.useContext)(_Context.Context),
@@ -72130,7 +72170,7 @@ function AddSong() {
     setLyrics('');
   }
 
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "\uD83C\uDF1A Add a new song"), /*#__PURE__*/_react.default.createElement(FormStyles, {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "\uD83C\uDF1A Add a new song"), /*#__PURE__*/_react.default.createElement(_styles.default, {
     onSubmit: handleSubmit
   }, /*#__PURE__*/_react.default.createElement("input", {
     placeholder: "Title",
@@ -72173,7 +72213,7 @@ function AddSong() {
     }
   }), /*#__PURE__*/_react.default.createElement("button", null, "Add")));
 }
-},{"react":"node_modules/react/index.js","./Context":"src/components/Context.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/Cart.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Context":"src/components/Context.js","../styled-components/styles":"src/styled-components/styles.js"}],"src/components/Cart.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -72289,9 +72329,9 @@ var _Menu = _interopRequireDefault(require("./components/Menu"));
 
 var _PopularSongs = _interopRequireDefault(require("./containers/PopularSongs"));
 
-var _StylesList = _interopRequireDefault(require("./components/StylesList"));
+var _StylesList = _interopRequireDefault(require("./containers/StylesList"));
 
-var _Style = _interopRequireDefault(require("./components/Style"));
+var _Style = _interopRequireDefault(require("./containers/Style"));
 
 var _Song = _interopRequireDefault(require("./components/Song"));
 
@@ -72301,12 +72341,6 @@ var _Cart = _interopRequireDefault(require("./components/Cart"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// - / (PopularSongs.js)
-// - /styles (StylesList.js)
-// - /styles/:styleName (Style.js)
-// - /song/:songId (Song.js)
-// - /add (AddSong.js)
-// - /cart (Cart.js)
 function App() {
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/"
@@ -72330,7 +72364,7 @@ function App() {
     path: "/cart"
   }, /*#__PURE__*/_react.default.createElement(_Cart.default, null))));
 }
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./components/Menu":"src/components/Menu.js","./containers/PopularSongs":"src/containers/PopularSongs.js","./components/StylesList":"src/components/StylesList.js","./components/Style":"src/components/Style.js","./components/Song":"src/components/Song.js","./components/AddSong":"src/components/AddSong.js","./components/Cart":"src/components/Cart.js"}],"node_modules/redux-thunk/es/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./components/Menu":"src/components/Menu.js","./containers/PopularSongs":"src/containers/PopularSongs.js","./containers/StylesList":"src/containers/StylesList.js","./containers/Style":"src/containers/Style.js","./components/Song":"src/components/Song.js","./components/AddSong":"src/components/AddSong.js","./components/Cart":"src/components/Cart.js"}],"node_modules/redux-thunk/es/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -72390,7 +72424,6 @@ function cartItem() {
 
 function styles() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  var action = arguments.length > 1 ? arguments[1] : undefined;
   return state;
 }
 
