@@ -1,18 +1,12 @@
-import React, { useContext } from 'react';
-import { Context } from './Context';
+import React, { useEffect } from 'react';
 import SongItem from './SongItem';
-import styled from 'styled-components';
+import {SongsContainer} from '../styled-components/styles';
 
-const SongsContainer = styled.ul`
-	display: grid;
-	grid-template-columns: 500px;
-	gap: 20px;
-	padding: 0;
-	margin: 0;
-`;
+export default function PopularSongs({ songs, setSongs }) {
 
-export default function PopularSongs() {
-	const { songs } = useContext(Context);
+	useEffect(() => {
+		setSongs()
+	}, [])
 
 	function sortSongsByPopularity(songA, songB) {
 		const ratioA = songA.upvotes - songA.downvotes;

@@ -1,3 +1,15 @@
+import songData from '../../songsData.json';
+
+export function setSongs() {
+    return (dispatch) => {
+        dispatch({
+            type: "SET_SONGS",
+            value: songData
+        })
+    }
+   
+ }
+
 export function setFavoriteSong(songId) {
    return {
        type: "SET_FAVORITE_SONG",

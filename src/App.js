@@ -3,7 +3,7 @@ import { Switch, Route, Link } from 'react-router-dom';
 
 import Menu from './components/Menu';
 
-import PopularSongs from './components/PopularSongs';
+import PopularSongs from './containers/PopularSongs';
 import StylesList from './components/StylesList';
 import Style from './components/Style';
 import Song from './components/Song';

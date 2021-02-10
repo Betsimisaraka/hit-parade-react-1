@@ -1,7 +1,13 @@
 import {combineReducers} from 'redux';
+// import songData from '../../songsData.json';
 
 function songs(state = [], action) {
-    return state;
+    switch(action.type) {
+        case "SET_SONGS":
+            return action.value
+        default:
+            return state;
+    }
 }
 
 function cartItem(state = [], action) {
