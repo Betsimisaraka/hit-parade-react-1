@@ -56,3 +56,53 @@ export const StylesContainer = styled.div`
 		color: #ffd803;
 	}
 `;
+
+export const SongItemStyle = styled.div`
+	display: flex;
+	gap: 20px;
+	color: white;
+	background: #272343;
+	padding: 2rem;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 5px;
+	.song-title {
+		font-size: 1.8rem;
+	}
+	svg {
+		font-size: 1.5rem;
+		cursor: pointer;
+	}
+	.heart-icon {
+		color: #ffd803;
+	}
+	.votes,
+	a {
+		color: #bae8e8;
+	}
+	svg:hover {
+		color: #ffd803;
+	}
+`;
+export const CartItemsContainer = styled.div`
+	display: grid;
+	gap: 20px;
+`;
+
+export const CartItemStyles = styled.div`
+	display: flex;
+	justify-content: space-between;
+	padding: 2rem;
+	background: #272343;
+	color: white;
+	.price {
+		color: #ffd803;
+	}
+	svg {
+		color: #bae8e8;
+		cursor: pointer;
+	}
+	svg:hover {
+		color: #ffd803;
+	}
+`;

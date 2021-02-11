@@ -8,7 +8,7 @@ import StylesList from './containers/StylesList';
 import Style from './containers/Style';
 import Song from './components/Song';
 import AddSong from './components/AddSong';
-import Cart from './components/Cart';
+import Cart from './containers/Cart';
 
 export default function App() {
 	return (

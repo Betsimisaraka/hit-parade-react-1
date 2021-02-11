@@ -1,33 +1,10 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Context } from './Context';
 import { AiOutlineDelete } from 'react-icons/ai';
-import styled from 'styled-components';
+import {CartItemsContainer, CartItemStyles} from '../styled-components/styles';
 
-const CartItemsContainer = styled.div`
-	display: grid;
-	gap: 20px;
-`;
-
-const CartItemStyles = styled.div`
-	display: flex;
-	justify-content: space-between;
-	padding: 2rem;
-	background: #272343;
-	color: white;
-	.price {
-		color: #ffd803;
-	}
-	svg {
-		color: #bae8e8;
-		cursor: pointer;
-	}
-	svg:hover {
-		color: #ffd803;
-	}
-`;
-
-export default function Cart() {
-	const { cartItems, removeCartItem, emptyCart } = useContext(Context);
+export default function Cart({ cartItems, removeCartItem }) {
+	const { emptyCart } = useContext(Context);
 	const [total, setTotal] = useState(0);
 
 	useEffect(() => {

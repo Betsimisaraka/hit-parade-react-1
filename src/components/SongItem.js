@@ -1,7 +1,10 @@
 import React, { useContext } from 'react';
-import styled from 'styled-components';
+import { connect } from 'react-redux';
+
 import { Context } from './Context';
 import { Link } from 'react-router-dom';
+import { upvoteSong, downvoteSong, addToCart, removeCartItem } from '../actions';
+import {SongItemStyle} from '../styled-components/styles';
 
 import {
 	AiOutlineHeart,
@@ -13,42 +16,9 @@ import {
 	AiOutlineEllipsis,
 } from 'react-icons/ai';
 
-const SongItemStyle = styled.div`
-	display: flex;
-	gap: 20px;
-	color: white;
-	background: #272343;
-	padding: 2rem;
-	justify-content: space-between;
-	align-items: center;
-	border-radius: 5px;
-	.song-title {
-		font-size: 1.8rem;
-	}
-	svg {
-		font-size: 1.5rem;
-		cursor: pointer;
-	}
-	.heart-icon {
-		color: #ffd803;
-	}
-	.votes,
-	a {
-		color: #bae8e8;
-	}
-	svg:hover {
-		color: #ffd803;
-	}
-`;
-
-export default function SongItem({ song }) {
+function SongItem({ song, cartItems, upvoteSong, downvoteSong, addToCart, removeCartItem }) {
 	const {
 		favoriteSong,
-		upvoteSong,
-		downvoteSong,
-		addToCart,
-		cartItems,
-		removeCartItem,
 	} = useContext(Context);
 
 	function showCartIcon() {
@@ -87,3 +57,5 @@ export default function SongItem({ song }) {
 		</SongItemStyle>
 	);
 }
+
+export default connect((state) => ({cartItems: state.cartItems}), { upvoteSong, downvoteSong, addToCart, removeCartItem })(SongItem)

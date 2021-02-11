@@ -1,5 +1,5 @@
 export default {
     songs: [],
-    cartItem: [],
+    cartItems: [],
     styles: ['Pop', 'Salegy', 'Reggae', 'Rock', 'Folk', 'Rap'],
 }
