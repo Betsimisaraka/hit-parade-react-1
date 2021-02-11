@@ -1,15 +1,19 @@
-import React, { useState, useContext } from 'react';
-import { Context } from './Context';
-import FormStyles from '../styled-components/styles';
+import React from 'react';
+import {FormStyles} from '../styled-components/styles';
 
-export default function AddSong() {
-	const { styles, addSong } = useContext(Context);
-
-	const [title, setTitle] = useState('');
-	const [artist, setArtist] = useState('');
-	const [price, setPrice] = useState(0);
-	const [style, setStyle] = useState('');
-	const [lyrics, setLyrics] = useState('');
+export default function AddSong({ 
+	styles,
+	title,
+	artist,
+	price,
+	style,
+	lyrics, 
+	setAddSong, 
+	setTitle, 
+	setArtist, 
+	setStyle, 
+	setPrice, 
+	setLyrics }) {
 
 	function handleSubmit(e) {
 		e.preventDefault();
@@ -25,13 +29,13 @@ export default function AddSong() {
 			isFavorited: false,
 		};
 		console.log(newSong);
-		addSong(newSong);
-		// reset the form... TODO: find a more elegant way.
-		setTitle('');
-		setArtist('');
-		setPrice(0);
-		setStyle('');
-		setLyrics('');
+		setAddSong(newSong);
+		// // reset the form... TODO: find a more elegant way.
+		// setTitle('');
+		// setArtist('');
+		// setPrice(0);
+		// setStyle('');
+		// setLyrics('');
 	}
 
 	return (

@@ -1,7 +1,5 @@
-import React, { useContext, useEffect } from 'react';
-import { Context } from './Context';
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import styled from 'styled-components';
 import {SongPreviewContainer, SongPreview} from '../styled-components/styles';
 
 export default function Style({ songs, setSongs }) {

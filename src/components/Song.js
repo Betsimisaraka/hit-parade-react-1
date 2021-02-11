@@ -1,12 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import { Context } from './Context';
 import { SongPreview } from '../styled-components/styles';
 import { AiOutlineArrowLeft } from 'react-icons/Ai';
 
-export default function Song() {
+export default function Song({ songs }) {
 	const { songId } = useParams();
-	const { songs } = useContext(Context);
 	const history = useHistory();
 
 	const song = songs.find(song => song.id === songId);

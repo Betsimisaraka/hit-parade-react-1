@@ -6,8 +6,8 @@ import Menu from './components/Menu';
 import PopularSongs from './containers/PopularSongs';
 import StylesList from './containers/StylesList';
 import Style from './containers/Style';
-import Song from './components/Song';
-import AddSong from './components/AddSong';
+import Song from './containers/Song';
+import AddSong from './containers/AddSong';
 import Cart from './containers/Cart';
 
 export default function App() {

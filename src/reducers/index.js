@@ -40,6 +40,9 @@ function songs(state = [], action) {
             });
             return updatedSongs
         }
+        case "SET_ADD_SONG":
+            console.log(state);
+            return [...state, action.value]
         default:
             return state;
     }
@@ -64,12 +67,60 @@ function styles(state = []) {
     return state
 }
 
+function title(state = "", action) {
+    switch(action.type) {
+        case "SET_TITLE":
+            return action.value 
+        default:
+            return state
+    }
+}
 
+function artist(state = "", action) {
+    switch(action.type) {
+        case "SET_ARTIST":
+            return action.value 
+        default:
+            return state
+    }
+}
+
+function price(state = 0, action) {
+    switch(action.type) {
+        case "SET_PRICE":
+            return action.value 
+        default:
+            return state
+    }
+}
+
+function style(state = "", action) {
+    switch(action.type) {
+        case "SET_STYLE":
+            return action.value 
+        default:
+            return state
+    }
+}
+
+function lyrics(state = "", action) {
+    switch(action.type) {
+        case "SET_LYRICS":
+            return action.value 
+        default:
+            return state
+    }
+}
 
 const rootReducers = combineReducers({
     songs,
     cartItems,
     styles,
+    title,
+    artist,
+    price,
+    style,
+    lyrics,
 });
 
 export default rootReducers;
