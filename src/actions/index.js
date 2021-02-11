@@ -10,9 +10,9 @@ export function setSongs() {
    
  }
 
-export function setFavoriteSong(songId) {
+export function favoriteSong(songId) {
    return {
-       type: "SET_FAVORITE_SONG",
+       type: "FAVORITE_SONG",
        value: songId
    }
 }

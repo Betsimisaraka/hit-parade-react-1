@@ -28,6 +28,18 @@ function songs(state = [], action) {
             });
             return updatedSongs;
         }
+        case "FAVORITE_SONG": {
+            const updatedSongs = state.map(song => {
+                if (song.id === action.value) {
+                    return {
+                        ...song,
+                        isFavorited: !song.isFavorited,
+                    };
+                }
+                return song;
+            });
+            return updatedSongs
+        }
         default:
             return state;
     }
@@ -39,8 +51,10 @@ function cartItems(state = [], action) {
             return [...state, action.value];
         case "REMOVE_CART_ITEM": {
             const filteredCartItems = state.filter(cartItem => cartItem.id !== action.value);
-            return state = filteredCartItems
+            return state = filteredCartItems;
         }
+        case "EMPTY_CART":
+            return state = []
         default:
             return state;
     }

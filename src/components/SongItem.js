@@ -1,9 +1,14 @@
 import React, { useContext } from 'react';
 import { connect } from 'react-redux';
 
-import { Context } from './Context';
 import { Link } from 'react-router-dom';
-import { upvoteSong, downvoteSong, addToCart, removeCartItem } from '../actions';
+import { 
+	upvoteSong, 
+	downvoteSong, 
+	addToCart, 
+	removeCartItem, 
+	favoriteSong 
+} from '../actions';
 import {SongItemStyle} from '../styled-components/styles';
 
 import {
@@ -16,11 +21,8 @@ import {
 	AiOutlineEllipsis,
 } from 'react-icons/ai';
 
-function SongItem({ song, cartItems, upvoteSong, downvoteSong, addToCart, removeCartItem }) {
-	const {
-		favoriteSong,
-	} = useContext(Context);
-
+function SongItem({ song, cartItems, upvoteSong, downvoteSong, addToCart, removeCartItem, favoriteSong }) {
+	
 	function showCartIcon() {
 		const isAlreadyInCart = cartItems.some(item => item.id === song.id);
 		if (isAlreadyInCart) {
@@ -58,4 +60,4 @@ function SongItem({ song, cartItems, upvoteSong, downvoteSong, addToCart, remove
 	);
 }
 
-export default connect((state) => ({cartItems: state.cartItems}), { upvoteSong, downvoteSong, addToCart, removeCartItem })(SongItem)
+export default connect((state) => ({cartItems: state.cartItems}), { upvoteSong, downvoteSong, addToCart, removeCartItem, favoriteSong })(SongItem)
