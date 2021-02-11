@@ -33853,203 +33853,7 @@ if ("development" !== "production") {
     style: _propTypes.default.object
   });
 }
-},{"react-router":"node_modules/react-router/esm/react-router.js","@babel/runtime/helpers/esm/inheritsLoose":"node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"node_modules/react/index.js","history":"node_modules/history/esm/history.js","prop-types":"node_modules/prop-types/index.js","tiny-warning":"node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"songsData.json":[function(require,module,exports) {
-module.exports = [{
-  "id": "1606111765520",
-  "title": "Dream",
-  "artist": "Jami",
-  "style": "Pop",
-  "upvotes": 10,
-  "downvotes": 1,
-  "lyrics": "Dream Dream Dream On On ON!!!!! Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!",
-  "price": 100,
-  "isFavorited": true
-}, {
-  "id": "1606112214653",
-  "title": "Red Wine",
-  "artist": "UB 40",
-  "style": "Reggae",
-  "upvotes": 5,
-  "downvotes": 1,
-  "lyrics": "Red, red wine goes to my head Makes me forget that I still need her so Red, red wine, it's up to you All I can do I've done Memories won't go, memories won't go. I'd have sworn that with time. Thoughts of you leave my head",
-  "price": 100,
-  "isFavorited": true
-}, {
-  "id": "1606112367350",
-  "title": "Formidable",
-  "artist": "Stromae",
-  "style": "Pop",
-  "upvotes": 0,
-  "downvotes": 0,
-  "lyrics": "Formidable Formidable Formidable Formidable Formidable Formidable Formidable Formidable ",
-  "price": 200,
-  "isFavorited": false
-}];
-},{}],"src/components/Context.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.ContextProvider = ContextProvider;
-exports.Context = void 0;
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _songsData = _interopRequireDefault(require("../../songsData.json"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-var Context = _react.default.createContext();
-
-exports.Context = Context;
-
-function ContextProvider(_ref) {
-  var children = _ref.children;
-
-  var _useState = (0, _react.useState)([]),
-      _useState2 = _slicedToArray(_useState, 2),
-      songs = _useState2[0],
-      setSongs = _useState2[1];
-
-  var _useState3 = (0, _react.useState)([]),
-      _useState4 = _slicedToArray(_useState3, 2),
-      cartItems = _useState4[0],
-      setCartItems = _useState4[1];
-
-  var _useState5 = (0, _react.useState)(['Pop', 'Salegy', 'Reggae', 'Rock', 'Folk', 'Rap']),
-      _useState6 = _slicedToArray(_useState5, 2),
-      styles = _useState6[0],
-      setStyles = _useState6[1];
-
-  (0, _react.useEffect)(function () {// if there's something inside ls with an id of "songs", then use that.
-    // const lsSongs = JSON.parse(localStorage.getItem('songs'));
-    // // otherwise, get the json
-    // lsSongs ? setSongs(lsSongs) : setSongs(songData);
-    // const lsCartItems = JSON.parse(localStorage.getItem('cartItems'));
-    // lsCartItems && setCartItems(lsCartItems);
-    // setSongs
-  }, []); // useEffect(() => {
-  // 	localStorage.setItem('songs', JSON.stringify(songs));
-  // }, [songs]);
-  // useEffect(() => {
-  // 	localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  // }, [cartItems]);
-  // everytime there's something changing on the songs state, update that to ls.
-
-  function favoriteSong(songId) {
-    // how should I modify the state here?
-    // recreate a WHOLE new state array
-    // we want to update the state in an IMMUTABLE WAY
-    var updatedSongs = songs.map(function (song) {
-      if (song.id === songId) {
-        return _objectSpread(_objectSpread({}, song), {}, {
-          isFavorited: !song.isFavorited
-        });
-      }
-
-      return song;
-    }); // set it into our state!
-
-    setSongs(updatedSongs);
-  }
-
-  function upvoteSong(songId) {
-    var updatedSongs = songs.map(function (song) {
-      if (song.id === songId) {
-        return _objectSpread(_objectSpread({}, song), {}, {
-          upvotes: song.upvotes + 1
-        });
-      }
-
-      return song;
-    });
-    setSongs(updatedSongs);
-  }
-
-  function downvoteSong(songId) {
-    var updatedSongs = songs.map(function (song) {
-      if (song.id === songId) {
-        return _objectSpread(_objectSpread({}, song), {}, {
-          downvotes: song.downvotes + 1
-        });
-      }
-
-      return song;
-    });
-    setSongs(updatedSongs);
-  }
-
-  function addToCart(song) {
-    // push in an immutable way
-    setCartItems(function (prevItems) {
-      return [].concat(_toConsumableArray(prevItems), [song]);
-    });
-  }
-
-  function addSong(song) {
-    setSongs(function (prevSongs) {
-      return [].concat(_toConsumableArray(prevSongs), [song]);
-    });
-  }
-
-  function removeCartItem(songId) {
-    var filteredCartItems = cartItems.filter(function (cartItem) {
-      return cartItem.id !== songId;
-    });
-    setCartItems(filteredCartItems);
-  }
-
-  function emptyCart() {
-    setCartItems([]);
-  }
-
-  return /*#__PURE__*/_react.default.createElement(Context.Provider, {
-    value: {
-      songs: songs,
-      styles: styles,
-      favoriteSong: favoriteSong,
-      upvoteSong: upvoteSong,
-      downvoteSong: downvoteSong,
-      addToCart: addToCart,
-      cartItems: cartItems,
-      addSong: addSong,
-      removeCartItem: removeCartItem,
-      emptyCart: emptyCart
-    }
-  }, children);
-}
-},{"react":"node_modules/react/index.js","../../songsData.json":"songsData.json"}],"node_modules/shallowequal/index.js":[function(require,module,exports) {
+},{"react-router":"node_modules/react-router/esm/react-router.js","@babel/runtime/helpers/esm/inheritsLoose":"node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"node_modules/react/index.js","history":"node_modules/history/esm/history.js","prop-types":"node_modules/prop-types/index.js","tiny-warning":"node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"node_modules/shallowequal/index.js":[function(require,module,exports) {
 //
 
 module.exports = function shallowEqual(objA, objB, compare, compareContext) {
@@ -38445,16 +38249,9 @@ exports.setPrice = setPrice;
 exports.setStyle = setStyle;
 exports.setLyrics = setLyrics;
 
-var _songsData = _interopRequireDefault(require("../../songsData.json"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function setSongs() {
-  return function (dispatch) {
-    dispatch({
-      type: "SET_SONGS",
-      value: _songsData.default
-    });
+  return {
+    type: "SET_SONGS"
   };
 }
 
@@ -38540,7 +38337,7 @@ function setLyrics(text) {
     value: text
   };
 }
-},{"../../songsData.json":"songsData.json"}],"src/styled-components/styles.js":[function(require,module,exports) {
+},{}],"src/styled-components/styles.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -55502,11 +55299,7 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function PopularSongs(_ref) {
-  var songs = _ref.songs,
-      setSongs = _ref.setSongs;
-  (0, _react.useEffect)(function () {
-    setSongs();
-  }, []);
+  var songs = _ref.songs;
 
   function sortSongsByPopularity(songA, songB) {
     var ratioA = songA.upvotes - songA.downvotes;
@@ -72143,14 +71936,14 @@ function Song(_ref) {
       songId = _useParams.songId;
 
   var history = (0, _reactRouterDom.useHistory)();
-  var song = songs.find(function (song) {
-    return song.id === songId;
+  var song = songs && songs.find(function (song) {
+    return song.id == songId;
   });
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, /*#__PURE__*/_react.default.createElement(_Ai.AiOutlineArrowLeft, {
     onClick: function onClick() {
       return history.goBack();
     }
-  }), song === null || song === void 0 ? void 0 : song.artist, " - ", song === null || song === void 0 ? void 0 : song.title), /*#__PURE__*/_react.default.createElement(_styles.SongPreview, null, /*#__PURE__*/_react.default.createElement("h3", null, "Lyrics"), song === null || song === void 0 ? void 0 : song.lyrics));
+  }), song.artist, " - ", song.title), /*#__PURE__*/_react.default.createElement(_styles.SongPreview, null, /*#__PURE__*/_react.default.createElement("h3", null, "Lyrics"), song.lyrics));
 }
 },{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../styled-components/styles":"src/styled-components/styles.js","react-icons/Ai":"node_modules/react-icons/Ai/index.esm.js"}],"src/containers/Song.js":[function(require,module,exports) {
 "use strict";
@@ -72214,7 +72007,6 @@ function AddSong(_ref) {
       downvotes: 0,
       isFavorited: false
     };
-    console.log(newSong);
     setAddSong(newSong); // // reset the form... TODO: find a more elegant way.
     // setTitle('');
     // setArtist('');
@@ -72452,35 +72244,7 @@ function App() {
     path: "/cart"
   }, /*#__PURE__*/_react.default.createElement(_Cart.default, null))));
 }
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./components/Menu":"src/components/Menu.js","./containers/PopularSongs":"src/containers/PopularSongs.js","./containers/StylesList":"src/containers/StylesList.js","./containers/Style":"src/containers/Style.js","./containers/Song":"src/containers/Song.js","./containers/AddSong":"src/containers/AddSong.js","./containers/Cart":"src/containers/Cart.js"}],"node_modules/redux-thunk/es/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-function createThunkMiddleware(extraArgument) {
-  return function (_ref) {
-    var dispatch = _ref.dispatch,
-        getState = _ref.getState;
-    return function (next) {
-      return function (action) {
-        if (typeof action === 'function') {
-          return action(dispatch, getState, extraArgument);
-        }
-
-        return next(action);
-      };
-    };
-  };
-}
-
-var thunk = createThunkMiddleware();
-thunk.withExtraArgument = createThunkMiddleware;
-var _default = thunk;
-exports.default = _default;
-},{}],"src/reducers/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./components/Menu":"src/components/Menu.js","./containers/PopularSongs":"src/containers/PopularSongs.js","./containers/StylesList":"src/containers/StylesList.js","./containers/Style":"src/containers/Style.js","./containers/Song":"src/containers/Song.js","./containers/AddSong":"src/containers/AddSong.js","./containers/Cart":"src/containers/Cart.js"}],"src/reducers/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -72514,7 +72278,7 @@ function songs() {
 
   switch (action.type) {
     case "SET_SONGS":
-      return action.value;
+      return state;
 
     case "UPVOTE_SONG":
       {
@@ -72561,7 +72325,6 @@ function songs() {
       }
 
     case "SET_ADD_SONG":
-      console.log(state);
       return [].concat(_toConsumableArray(state), [action.value]);
 
     default:
@@ -72683,7 +72446,37 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _default = {
-  songs: [],
+  songs: [{
+    "id": "1606111765520",
+    "title": "Dream",
+    "artist": "Jami",
+    "style": "Pop",
+    "upvotes": 10,
+    "downvotes": 1,
+    "lyrics": "Dream Dream Dream On On ON!!!!! Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!",
+    "price": 100,
+    "isFavorited": true
+  }, {
+    "id": "1606112214653",
+    "title": "Red Wine",
+    "artist": "UB 40",
+    "style": "Reggae",
+    "upvotes": 5,
+    "downvotes": 1,
+    "lyrics": "Red, red wine goes to my head Makes me forget that I still need her so Red, red wine, it's up to you All I can do I've done Memories won't go, memories won't go. I'd have sworn that with time. Thoughts of you leave my head",
+    "price": 100,
+    "isFavorited": true
+  }, {
+    "id": "1606112367350",
+    "title": "Formidable",
+    "artist": "Stromae",
+    "style": "Pop",
+    "upvotes": 0,
+    "downvotes": 0,
+    "lyrics": "Formidable Formidable Formidable Formidable Formidable Formidable Formidable Formidable ",
+    "price": 200,
+    "isFavorited": false
+  }],
   cartItems: [],
   styles: ['Pop', 'Salegy', 'Reggae', 'Rock', 'Folk', 'Rap'],
   title: "",
@@ -72703,18 +72496,20 @@ exports.default = void 0;
 
 var _redux = require("redux");
 
-var _reduxThunk = _interopRequireDefault(require("redux-thunk"));
-
 var _reducers = _interopRequireDefault(require("./reducers"));
 
 var _state = _interopRequireDefault(require("./state"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var store = (0, _redux.createStore)(_reducers.default, _state.default, (0, _redux.applyMiddleware)(_reduxThunk.default));
+var persistedState = localStorage.getItem('state') ? JSON.parse(localStorage.getItem('state')) : _state.default;
+var store = (0, _redux.createStore)(_reducers.default, persistedState);
+store.subscribe(function () {
+  localStorage.setItem('state', JSON.stringify(store.getState()));
+});
 var _default = store;
 exports.default = _default;
-},{"redux":"node_modules/redux/es/redux.js","redux-thunk":"node_modules/redux-thunk/es/index.js","./reducers":"src/reducers/index.js","./state":"src/state.js"}],"src/index.js":[function(require,module,exports) {
+},{"redux":"node_modules/redux/es/redux.js","./reducers":"src/reducers/index.js","./state":"src/state.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -72722,8 +72517,6 @@ var _react = _interopRequireDefault(require("react"));
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _reactRouterDom = require("react-router-dom");
-
-var _Context = require("./components/Context");
 
 var _App = _interopRequireDefault(require("./App"));
 
@@ -72733,10 +72526,10 @@ var _store = _interopRequireDefault(require("./store"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom.default.render( /*#__PURE__*/_react.default.createElement(_Context.ContextProvider, null, /*#__PURE__*/_react.default.createElement(_reactRedux.Provider, {
+_reactDom.default.render( /*#__PURE__*/_react.default.createElement(_reactRedux.Provider, {
   store: _store.default
-}, /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement(_App.default, null)))), document.getElementById('root'));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./components/Context":"src/components/Context.js","./App":"src/App.js","react-redux":"node_modules/react-redux/es/index.js","./store":"src/store.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+}, /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement(_App.default, null))), document.getElementById('root'));
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./App":"src/App.js","react-redux":"node_modules/react-redux/es/index.js","./store":"src/store.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

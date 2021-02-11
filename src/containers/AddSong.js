@@ -1,6 +1,5 @@
 import { connect } from "react-redux";
 import AddSong from "../components/AddSong";
-
 import {setAddSong, setTitle, setArtist, setStyle, setPrice, setLyrics} from '../actions';
 
 function mapStateToProps(state) {

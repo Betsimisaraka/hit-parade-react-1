@@ -2,11 +2,7 @@ import React, { useEffect } from 'react';
 import SongItem from './SongItem';
 import {SongsContainer} from '../styled-components/styles';
 
-export default function PopularSongs({ songs, setSongs }) {
-
-	useEffect(() => {
-		setSongs()
-	}, [])
+export default function PopularSongs({ songs }) {
 
 	function sortSongsByPopularity(songA, songB) {
 		const ratioA = songA.upvotes - songA.downvotes;

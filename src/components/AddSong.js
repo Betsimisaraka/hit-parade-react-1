@@ -28,7 +28,6 @@ export default function AddSong({
 			downvotes: 0,
 			isFavorited: false,
 		};
-		console.log(newSong);
 		setAddSong(newSong);
 		// // reset the form... TODO: find a more elegant way.
 		// setTitle('');

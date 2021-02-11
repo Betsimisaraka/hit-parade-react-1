@@ -3,7 +3,7 @@ import {combineReducers} from 'redux';
 function songs(state = [], action) {
     switch(action.type) {
         case "SET_SONGS":
-            return action.value 
+            return state
         case "UPVOTE_SONG": {
             const updatedSongs = state.map(song => {
                 if (song.id === action.value) {
@@ -41,7 +41,6 @@ function songs(state = [], action) {
             return updatedSongs
         }
         case "SET_ADD_SONG":
-            console.log(state);
             return [...state, action.value]
         default:
             return state;
