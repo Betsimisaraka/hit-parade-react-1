@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import SongItem from './SongItem';
 import {SongsContainer} from '../styled-components/styles';
+import { useSelector } from 'react-redux';
 
-export default function PopularSongs({ songs }) {
+export default function PopularSongs() {
+	const songs = useSelector(state => state.songs)
 
 	function sortSongsByPopularity(songA, songB) {
 		const ratioA = songA.upvotes - songA.downvotes;

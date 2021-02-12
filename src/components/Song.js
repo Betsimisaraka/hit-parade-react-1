@@ -2,8 +2,11 @@ import React from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { SongPreview } from '../styled-components/styles';
 import { AiOutlineArrowLeft } from 'react-icons/Ai';
+import { useSelector } from 'react-redux';
 
-export default function Song({ songs }) {
+export default function Song() {
+	const songs = useSelector(state => state.songs)
+
 	const { songId } = useParams();
 	const history = useHistory();
 

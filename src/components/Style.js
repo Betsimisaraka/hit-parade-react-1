@@ -1,13 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {SongPreviewContainer, SongPreview} from '../styled-components/styles';
+import { useSelector } from 'react-redux';
 
-export default function Style({ songs, setSongs }) {
+export default function Style() {
+	const songs = useSelector(state => state.songs);
+
 	const { styleName } = useParams();
-
-	useEffect(() => {
-		setSongs();
-	}, [])
 
 	function createSongTemplate(song) {
 		return (

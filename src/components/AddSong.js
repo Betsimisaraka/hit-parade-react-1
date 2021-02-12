@@ -1,19 +1,16 @@
 import React from 'react';
 import {FormStyles} from '../styled-components/styles';
+import {setAddSong, setTitle, setArtist, setStyle, setPrice, setLyrics} from '../actions';
+import { useDispatch, useSelector } from 'react-redux';
 
-export default function AddSong({ 
-	styles,
-	title,
-	artist,
-	price,
-	style,
-	lyrics, 
-	setAddSong, 
-	setTitle, 
-	setArtist, 
-	setStyle, 
-	setPrice, 
-	setLyrics }) {
+export default function AddSong() {
+	const dispatch = useDispatch();
+	const styles = useSelector(state => state.styles)
+	const title = useSelector(state => state.title)
+	const artist = useSelector(state => state.artist)
+	const price = useSelector(state => state.price)
+	const style = useSelector(state => state.style)
+	const lyrics = useSelector(state => state.lyrics)
 
 	function handleSubmit(e) {
 		e.preventDefault();
@@ -28,7 +25,7 @@ export default function AddSong({
 			downvotes: 0,
 			isFavorited: false,
 		};
-		setAddSong(newSong);
+	 	dispatch(setAddSong(newSong));
 		// // reset the form... TODO: find a more elegant way.
 		// setTitle('');
 		// setArtist('');
@@ -45,21 +42,21 @@ export default function AddSong({
 					placeholder="Title"
 					required
 					value={title}
-					onChange={e => setTitle(e.currentTarget.value)}
+					onChange={e => dispatch(setTitle(e.currentTarget.value))}
 				/>
 				<input
 					placeholder="Artist"
 					required
 					value={artist}
-					onChange={e => setArtist(e.currentTarget.value)}
+					onChange={e => dispatch(setArtist(e.currentTarget.value))}
 				/>
 				<input
 					placeholder="Price"
 					required
 					value={price}
-					onChange={e => setPrice(e.currentTarget.value)}
+					onChange={e => dispatch(setPrice(e.currentTarget.value))}
 				/>
-				<select required value={style} onChange={e => setStyle(e.currentTarget.value)}>
+				<select required value={style} onChange={e => dispatch(setStyle(e.currentTarget.value))}>
 					{/* generate the styles from the context style array */}
 					{styles.map(style => (
 						<option key={style} value={style}>
@@ -71,7 +68,7 @@ export default function AddSong({
 					required
 					placeholder="Lyrics"
 					value={lyrics}
-					onChange={e => setLyrics(e.currentTarget.value)}
+					onChange={e => dispatch(setLyrics(e.currentTarget.value))}
 				/>
 				<button>Add</button>
 			</FormStyles>
