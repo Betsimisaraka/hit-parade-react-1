@@ -7,7 +7,7 @@ export default function Cart({ cartItems, removeCartItem, emptyCart }) {
 
 	useEffect(() => {
 		const newTotal = cartItems.reduce((total, song) => {
-			total += song.price;
+			total += Number(song.price);
 			return total;
 		}, 0);
 		setTotal(newTotal);

@@ -1,8 +1,9 @@
-export function setSongs() {
+export function setAddSong(song) {
     return {
-        type: "SET_SONGS",
+        type: "SET_ADD_SONG",
+        value: song
     }
- }
+}
 
 export function favoriteSong(songId) {
    return {
@@ -28,13 +29,6 @@ export function downvoteSong(songId) {
 export function addToCart(song) {
     return {
         type: "ADD_TO_CART",
-        value: song
-    }
-}
-
-export function setAddSong(song) {
-    return {
-        type: "SET_ADD_SONG",
         value: song
     }
 }

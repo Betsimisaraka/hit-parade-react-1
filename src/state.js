@@ -1,4 +1,11 @@
 export default {
+    cartItems: [],
+    styles: ['Pop', 'Salegy', 'Reggae', 'Rock', 'Folk', 'Rap'],
+    title: "",
+    artist: "",
+    price: 0,
+    style: "",
+    lyrics: "",
     songs: [
         {
             "id": "1606111765520",
@@ -34,11 +41,4 @@ export default {
             "isFavorited": false
         }
     ],
-    cartItems: [],
-    styles: ['Pop', 'Salegy', 'Reggae', 'Rock', 'Folk', 'Rap'],
-    title: "",
-    artist: "",
-    price: 0,
-    style: "",
-    lyrics: "",
 }

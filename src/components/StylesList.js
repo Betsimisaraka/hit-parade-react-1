@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import {useSelector, useDispatch} from 'react-redux';
 
 import {StylesContainer } from '../styled-components/styles';
 
 export default function StylesList({ styles }) {
+	// const styles = useSelector(state => state.styles);
+	// const dispatch = useDispatch()
 	
 	return (
 		<div>

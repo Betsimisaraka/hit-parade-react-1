@@ -38235,12 +38235,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.setSongs = setSongs;
+exports.setAddSong = setAddSong;
 exports.favoriteSong = favoriteSong;
 exports.upvoteSong = upvoteSong;
 exports.downvoteSong = downvoteSong;
 exports.addToCart = addToCart;
-exports.setAddSong = setAddSong;
 exports.removeCartItem = removeCartItem;
 exports.emptyCart = emptyCart;
 exports.setTitle = setTitle;
@@ -38249,9 +38248,10 @@ exports.setPrice = setPrice;
 exports.setStyle = setStyle;
 exports.setLyrics = setLyrics;
 
-function setSongs() {
+function setAddSong(song) {
   return {
-    type: "SET_SONGS"
+    type: "SET_ADD_SONG",
+    value: song
   };
 }
 
@@ -38279,13 +38279,6 @@ function downvoteSong(songId) {
 function addToCart(song) {
   return {
     type: "ADD_TO_CART",
-    value: song
-  };
-}
-
-function setAddSong(song) {
-  return {
-    type: "SET_ADD_SONG",
     value: song
   };
 }
@@ -55361,8 +55354,11 @@ var _styles = require("../styled-components/styles");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import {useSelector, useDispatch} from 'react-redux';
 function StylesList(_ref) {
   var styles = _ref.styles;
+  // const styles = useSelector(state => state.styles);
+  // const dispatch = useDispatch()
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Styles list"), /*#__PURE__*/_react.default.createElement(_styles.StylesContainer, null, styles.map(function (style) {
     return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
       to: "/styles/".concat(style),
@@ -72139,7 +72135,7 @@ function Cart(_ref) {
 
   (0, _react.useEffect)(function () {
     var newTotal = cartItems.reduce(function (total, song) {
-      total += song.price;
+      total += Number(song.price);
       return total;
     }, 0);
     setTotal(newTotal);
@@ -72254,6 +72250,12 @@ exports.default = void 0;
 
 var _redux = require("redux");
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -72266,19 +72268,13 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function songs() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
-    case "SET_SONGS":
-      return state;
+    case "SET_ADD_SONG":
+      return [].concat(_toConsumableArray(state), [action.value]);
 
     case "UPVOTE_SONG":
       {
@@ -72324,9 +72320,6 @@ function songs() {
         return _updatedSongs2;
       }
 
-    case "SET_ADD_SONG":
-      return [].concat(_toConsumableArray(state), [action.value]);
-
     default:
       return state;
   }
@@ -72345,11 +72338,11 @@ function cartItems() {
         var filteredCartItems = state.filter(function (cartItem) {
           return cartItem.id !== action.value;
         });
-        return state = filteredCartItems;
+        return _toConsumableArray(filteredCartItems);
       }
 
     case "EMPTY_CART":
-      return state = [];
+      return [];
 
     default:
       return state;
@@ -72446,6 +72439,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _default = {
+  cartItems: [],
+  styles: ['Pop', 'Salegy', 'Reggae', 'Rock', 'Folk', 'Rap'],
+  title: "",
+  artist: "",
+  price: 0,
+  style: "",
+  lyrics: "",
   songs: [{
     "id": "1606111765520",
     "title": "Dream",
@@ -72476,14 +72476,7 @@ var _default = {
     "lyrics": "Formidable Formidable Formidable Formidable Formidable Formidable Formidable Formidable ",
     "price": 200,
     "isFavorited": false
-  }],
-  cartItems: [],
-  styles: ['Pop', 'Salegy', 'Reggae', 'Rock', 'Folk', 'Rap'],
-  title: "",
-  artist: "",
-  price: 0,
-  style: "",
-  lyrics: ""
+  }]
 };
 exports.default = _default;
 },{}],"src/store.js":[function(require,module,exports) {
@@ -72502,11 +72495,13 @@ var _state = _interopRequireDefault(require("./state"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var persistedState = localStorage.getItem('state') ? JSON.parse(localStorage.getItem('state')) : _state.default;
-var store = (0, _redux.createStore)(_reducers.default, persistedState);
-store.subscribe(function () {
-  localStorage.setItem('state', JSON.stringify(store.getState()));
-});
+// const persistedState = localStorage.getItem('state') 
+//                        ? JSON.parse(localStorage.getItem('state'))
+//                        : state
+var store = (0, _redux.createStore)(_reducers.default, _state.default); // store.subscribe(()=>{
+//     localStorage.setItem('state', JSON.stringify(store.getState()));
+//   })
+
 var _default = store;
 exports.default = _default;
 },{"redux":"node_modules/redux/es/redux.js","./reducers":"src/reducers/index.js","./state":"src/state.js"}],"src/index.js":[function(require,module,exports) {
@@ -72557,7 +72552,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64748" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53762" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

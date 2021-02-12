@@ -2,8 +2,8 @@ import {combineReducers} from 'redux';
 
 function songs(state = [], action) {
     switch(action.type) {
-        case "SET_SONGS":
-            return state
+        case "SET_ADD_SONG":
+            return [...state, action.value]
         case "UPVOTE_SONG": {
             const updatedSongs = state.map(song => {
                 if (song.id === action.value) {
@@ -40,8 +40,6 @@ function songs(state = [], action) {
             });
             return updatedSongs
         }
-        case "SET_ADD_SONG":
-            return [...state, action.value]
         default:
             return state;
     }
@@ -53,10 +51,10 @@ function cartItems(state = [], action) {
             return [...state, action.value];
         case "REMOVE_CART_ITEM": {
             const filteredCartItems = state.filter(cartItem => cartItem.id !== action.value);
-            return state = filteredCartItems;
+            return [...filteredCartItems];
         }
         case "EMPTY_CART":
-            return state = []
+            return []
         default:
             return state;
     }
